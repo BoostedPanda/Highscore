@@ -1,0 +1,29 @@
+
+<div class="container">
+    <div class="container">
+    <div class="row justify-content-between">
+    <h1 class="d-inline col-4">Spel</h1>
+    <a href="games/new" class="btn btn-outline-dark mb-4 mt-2 col-1 btn-sm" >Nytt spel</a>
+</div>
+</div>
+<table class="table table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Titel</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Lanseringsår</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% games.forEach(game => { %>
+            <tr>
+                <th scope="row"><%= game.id %></th>
+                <td><%= game.title %></td>
+                <td><%= game.genre %></td>
+                <td><%= game.release_date %></td>
+              </tr>
+          <% }) %>
+    </tbody>
+  </table>
+</div>

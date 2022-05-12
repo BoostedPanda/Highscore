@@ -1,0 +1,11 @@
+<section class="highscores mb-4 mx-5">
+    <h2 class="text-center mb-4">Highscores</h2>
+    <div class="list-group">
+    
+      <% games.forEach(game => { %>
+        <%- include("shared/partials/search-card", {game}) %>
+      <% }) %>
+    
+    </div>
+    </section>
+    

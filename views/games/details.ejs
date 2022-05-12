@@ -1,0 +1,31 @@
+<section class="row mb-4">
+    <img
+      src="<%= gameDetail.image_url %>"
+      class="d-block col-5"
+      alt=""
+    />
+    <div class="col-7">
+      <h1 class="mb-3"><%= gameDetail.title %></h1>
+      <div class="mb-5"><%= gameDetail.release_date %>, <%= gameDetail.genre %></div>
+      <div class="mb-3"><%= gameDetail.description %></div>
+    </div>
+  </section>
+
+  <section class="highscores mb-4 mx-5">
+    <h2 class="text-center mb-4">Highscores</h2>
+    <div class="list-group">
+
+      <% if (games[0].points) { %>
+        <% games.forEach(game => { %>
+          <%- include("../shared/partials/game-highscore", {game}) %>
+        <% }) %>
+        <%} else { %>
+          <a href="#" class="list-group-item list-group-item-action  mb-2" >
+          <div class="d-flex w-100 justify-content-center">
+            <h4 class="text-center">No scores yet!</h4>
+          </div>
+        </a>
+        <% } %>
+
+    </div>
+    </section>

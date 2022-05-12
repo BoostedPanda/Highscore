@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>Nytt spel</h1>
+<form method="post">
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Titel</label>
+        <input type="text" class="form-control" name="title" id="title" placeholder="Example input placeholder">
+      </div>
+
+      <div class="row mb-3">
+        <label for="description" class="form-label">Beskrivning</label>
+        <div class="col">
+          <textarea name="description" class="form-control" id="description" placeholder="Beskrivning"></textarea>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="image_url" class="form-label">Bild</label>
+        <input type="text" class="form-control" name="image_url" id="image_url" placeholder="Another input placeholder">
+      </div>
+
+      <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <select class="form-select" name="genre_id" id="genre" aria-label="Default select example">
+            <option selected disabled hidden></option>
+            <% genre.forEach(genre => { %>
+                <option value="<%= genre.id %>"><%= genre.genre %></option>
+              <% }) %>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="release_date" class="form-label">Lanseringsdatum</label>
+        <input type="date" class="form-control" name="release_date" id="release_date" placeholder="Another input placeholder">
+      </div>
+
+      <button class="btn btn-primary">Lägg till</button>
+    </form>
+
+</div>
+

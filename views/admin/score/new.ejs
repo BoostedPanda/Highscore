@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Nytt highscore</h1>
+<form method="post">
+    <div class="mb-3">
+        <label for="gameSelect" class="form-label">Spel</label>
+        <select class="form-select" name="game_id" id="gameSelect" aria-label="Default select example">
+            <option selected disabled hidden></option>
+            <% games.forEach(game => { %>
+                <option value="<%= game.id %>"><%= game.title %></option>
+              <% }) %>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Spelare</label>
+        <input type="text" class="form-control" name="player" id="formGroupExampleInput" placeholder="Example input placeholder">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput3" class="form-label">Datum</label>
+        <input type="date" class="form-control" name="created_at" id="formGroupExampleInput3" placeholder="Another input placeholder">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Poäng</label>
+        <input type="text" class="form-control" name="points" id="formGroupExampleInput2" placeholder="Another input placeholder">
+      </div>
+      <button class="btn btn-primary">Lägg till</button>
+    </form>
+
+</div>
