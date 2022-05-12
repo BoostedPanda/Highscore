@@ -11,8 +11,6 @@ var indexRouter = require('./routes/index');
 var searchRouter = require('./routes/search')
 var gamesRouter = require('./routes/games');
 var adminRouter = require('./routes/admin/games');
-var gamesApiRouter = require('./routes/api/games');
-var scoresApiRouter = require('./routes/api/scores');
 
 var app = express();
 app.locals.db = new Pool({
@@ -41,8 +39,6 @@ app.use('/', indexRouter);
 app.use('/search', searchRouter);
 app.use('/games', gamesRouter);
 app.use('/admin', adminRouter);
-app.use('/api/games', gamesApiRouter);
-app.use('/api/scores', scoresApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
