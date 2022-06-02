@@ -6,11 +6,31 @@ var logger = require('morgan');
 var expressLayouts = require("express-ejs-layouts");
 const { Pool } = require("pg")
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express')
+const swaggerJSDoc = require('swagger-jsdoc')
+
+
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Highscore',
+      version: '1.0.0',
+    },
+  },
+  apis: ['./routes/api/*.js']
+};
+
+
+const openApiSpecification = swaggerJSDoc(options)
+
 
 var indexRouter = require('./routes/index');
 var searchRouter = require('./routes/search')
 var gamesRouter = require('./routes/games');
 var adminRouter = require('./routes/admin/games');
+var gamesApiRouter = require('./routes/api/games');
+var scoresApiRouter = require('./routes/api/scores');
 
 var app = express();
 app.locals.db = new Pool({
@@ -39,6 +59,12 @@ app.use('/', indexRouter);
 app.use('/search', searchRouter);
 app.use('/games', gamesRouter);
 app.use('/admin', adminRouter);
+
+//API
+app.use('/api/games', gamesApiRouter);
+app.use('/api/scores', scoresApiRouter);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openApiSpecification))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
